@@ -1,0 +1,98 @@
+KỊCH BẢN THUYẾT TRÌNH VÀ QUAY VIDEO DEMO ĐỒ ÁN
+ỨNG DỤNG DI ĐỘNG CHẤM CÔNG THÔNG MINH (SMART ATTENDANCE APP)
+Sinh viên thực hiện: Trần Minh Khôi
+MSSV: 2380601106
+Lớp: 23DTHC3 - Trường Đại học Công nghệ TP.HCM (HUTECH)
+GitHub Repo: https://github.com/kihoo2905/appCC.git
+Thời lượng dự kiến: 3 - 5 phút
+
+======================================================================
+PHẦN 1: MỞ ĐẦU (Khoảng 20 - 30 giây)
+======================================================================
+[HÀNH ĐỘNG]: 
+- Để màn hình điện thoại ở giao diện Đăng nhập (login_screen.dart).
+- Góc màn hình máy tính mở Swagger API hoặc Visual Studio.
+
+[LỜI THOẠI]:
+"Kính chào Thầy/Cô và các bạn. Em tên là Trần Minh Khôi, sinh viên lớp 23DTHC3, mã số sinh viên 2380601106. 
+Hôm nay, em xin phép quay video báo cáo và demo sản phẩm ứng dụng di động: Hệ Thống Chấm Công Nhân Viên Doanh Nghiệp Thông Minh. 
+Hệ thống được phát triển đồng bộ giữa Ứng dụng di động bằng Flutter/Dart và Backend Web API viết bằng C# .NET 9, kết nối cơ sở dữ liệu SQL Server.
+Sau đây, em xin phép demo chi tiết từng chức năng theo đúng barem yêu cầu của đề tài."
+
+======================================================================
+PHẦN 2: ĐĂNG KÝ, ĐĂNG NHẬP 2 BƯỚC & PHÂN QUYỀN (MỤC 1, 2, 3) (Khoảng 60 giây)
+======================================================================
+[HÀNH ĐỘNG]:
+1. Nhấn nút "Đăng ký tài khoản" -> Nhập họ tên, username, email -> Bấm Đăng ký -> Hiển thị ô xác thực OTP gửi về hộp thư email.
+2. Quay lại Đăng nhập:
+   - Nhập: admin / Admin@123 -> Nhấn Đăng nhập -> Ứng dụng yêu cầu OTP -> Nhập mã OTP -> Hệ thống chuyển thẳng vào TRANG QUẢN TRỊ (Admin Dashboard).
+   - Đăng xuất -> Đăng nhập tài khoản: nhanvien01 / NhanVien@123 -> Nhập OTP -> Hệ thống chuyển thẳng vào DASHBOARD NHÂN VIÊN.
+   - Đăng xuất -> Đăng nhập tài khoản: khachhang01 / KhachHang@123 -> Nhập OTP -> Hệ thống chuyển thẳng vào TRANG KHÁCH / THẺ VISITOR PASS.
+
+[LỜI THOẠI]:
+"Đầu tiên là Yêu cầu 1 và Yêu cầu 2: Đăng ký và Đăng nhập bảo mật 2 lớp:
+Hệ thống áp dụng cơ chế xác thực OTP qua Email thời gian thực. Sau khi người dùng nhập đúng tên đăng nhập và mật khẩu, hệ thống sinh mã OTP 6 chữ số ngẫu nhiên có hiệu lực trong 5 phút để kích hoạt phiên làm việc.
+Tiếp theo là Yêu cầu 3: Phân quyền người dùng động theo Role:
+- Khi đăng nhập bằng tài khoản Quản trị viên admin, hệ thống điều hướng vào ngay Trang Quản Trị Admin.
+- Khi đăng nhập tài khoản nhân viên nhanvien01, hệ thống đưa vào Dashboard Chấm công của Nhân viên.
+- Và khi đăng nhập tài khoản khách hàng hoặc đối tác khachhang01, hệ thống mở ra Trang Thẻ Khách Điện Tử Visitor Pass để làm thủ tục check-in vào công ty."
+
+======================================================================
+PHẦN 3: CÁC CHỨC NĂNG CRUD TOÀN DIỆN (MỤC 4 - 5.5 ĐIỂM) (Khoảng 60 - 75 giây)
+======================================================================
+[HÀNH ĐỘNG]:
+Tại màn hình Admin, chọn nút "Quản lý Nhân sự (CRUD)":
+1. Read: Toàn bộ danh sách nhân viên được tải về từ CSDL SQL Server kèm Phòng ban, Ca làm, Mức lương.
+2. Create: Nhấn nút dấu cộng (+) "Thêm Nhân Viên" -> Nhập mã NV, Họ tên, chọn phòng ban, ca làm việc từ dropdown dữ liệu động -> Nhấn Lưu -> Nhân viên mới lập tức xuất hiện trong danh sách.
+3. Update: Nhấn icon Cây bút (Sửa) tại nhân viên vừa tạo -> Đổi phòng ban hoặc tăng lương -> Nhấn Lưu -> Dữ liệu cập nhật ngay tức thì.
+4. Delete: Nhấn icon Thùng rác (Xóa) -> Hộp thoại cảnh báo xuất hiện -> Nhấn Xác nhận Xóa -> Dữ liệu được xóa thành công khỏi database.
+5. Mở tiếp "Cấu hình Danh mục & Vai trò": Lướt qua 4 tab CRUD: Phòng ban, Ca làm việc, Vị trí GPS và Phân quyền tài khoản.
+
+[LỜI THOẠI]:
+"Tiếp theo là phần trọng tâm chiếm 5.5 điểm: Các chức năng CRUD toàn diện.
+Tại màn hình Quản lý Nhân sự:
+- Thao tác Read: Tải toàn bộ danh sách nhân viên từ CSDL SQL Server thông qua API C# phân trang.
+- Thao tác Create: Em nhấn 'Thêm Nhân Viên', nhập đầy đủ thông tin, chọn phòng ban và ca làm việc từ dropdown dữ liệu động. Nhấn Lưu, API xử lý và thêm mới thành công.
+- Thao tác Update: Em chọn nút Sửa, cập nhật lại thông tin phòng ban hoặc chức vụ, hệ thống lưu lại và làm mới dữ liệu tức thì.
+- Thao tác Delete: Khi nhấn Xóa, ứng dụng có hộp thoại cảnh báo an toàn. Nhấn đồng ý, nhân viên được xóa thành công.
+Ngoài ra, tại mục Cấu hình Danh mục, Admin còn có thể CRUD toàn diện cho Phòng Ban, Ca Làm Việc, Tọa độ Vị trí công ty và Phân quyền người dùng."
+
+======================================================================
+PHẦN 4: 3 CÔNG NGHỆ CHÍNH ĐÃ CHỌN (MỤC 5 - 3.5 ĐIỂM) (Khoảng 60 giây)
+======================================================================
+[HÀNH ĐỘNG]:
+Vào Dashboard Nhân viên:
+1. Công nghệ 1 (GPS): Nhấn nút "Vào ca" tại mục Chấm công Vị trí GPS -> Ứng dụng lấy vị trí GPS thực tế -> Thông báo: "Chấm công GPS thành công tại bán kính văn phòng" -> Trạng thái đổi sang màu xanh "Đang làm việc".
+2. Công nghệ 2 (QR Code): Bấm "Quét" tại mục Quét mã QR Chấm công -> Camera quét mã QR động đổi mỗi 60s từ màn hình Admin -> Báo điểm danh thành công.
+3. Công nghệ 3 (Cảm biến gia tốc - Accelerometer): Bấm vào thẻ "Cảm biến Gia tốc & Bước chân" -> Mở màn hình cảm biến:
+   - Cầm điện thoại lắc nhẹ hoặc đi lại: Trục X, Y, Z nhảy số liên tục, đồ thị sóng dao động theo thời gian thực, đếm bước chân tăng lên, trạng thái chuyển từ ĐỨNG YÊN sang ĐANG ĐI BỘ / CHẠY.
+
+[LỜI THOẠI]:
+"Sau đây là 3 công nghệ chính em chọn để thuyết trình đạt 3.5 điểm:
+1. Thứ nhất - Chia sẻ vị trí GPS Geofence: Ứng dụng sử dụng package geolocator kết hợp công thức khoảng cách Haversine ở Backend. Ứng dụng kiểm tra vị trí thực tế của nhân viên với tọa độ trụ sở công ty tại 475A Điện Biên Phủ HUTECH. Đồng thời kiểm tra cờ isMocked để chặn hoàn toàn các ứng dụng Fake GPS gian lận.
+2. Thứ hai - Quét mã QR Code động: Phía Admin hiển thị một mã QR thay đổi liên tục mỗi 60 giây bằng thuật toán mã hóa HMAC. Nhân viên phải dùng camera quét trực tiếp tại chỗ, không thể dùng ảnh chụp màn hình gửi cho nhau để điểm danh hộ.
+3. Thứ ba - Cảm biến Gia tốc Accelerometer: Ứng dụng đọc dữ liệu thời gian thực từ cảm biến phần cứng qua 3 trục tọa độ X, Y, Z. Ứng dụng phân tích cường độ dao động để đếm bước chân và phân loại: đứng yên, rung lắc hay đang thực sự di chuyển bộ đến văn phòng. Đây là bằng chứng vật lý thực tế kết hợp với GPS chống giả lập chấm công từ xa."
+
+======================================================================
+PHẦN 5: TÍNH NĂNG MỚI ĐỀ XUẤT (MỤC 6 - 1.0 ĐIỂM) & GIAO DIỆN (MỤC 7 - 1.0 ĐIỂM) (Khoảng 45 giây)
+======================================================================
+[HÀNH ĐỘNG]:
+1. Tại mục Tiện ích công việc, bấm chọn "Bảng Lương & KPI" -> Mở màn hình Bảng Lương Dự Kiến.
+2. Chỉ vào các phần: Lương thực nhận hiện tại, Thanh tiến độ ngày công, Bảng chi tiết: Lương theo công, Phụ cấp ăn trưa, Trừ tiền đi trễ từng phút, Thưởng chuỗi đúng giờ và xếp loại KPI A.
+3. Lướt qua giao diện tổng thể của toàn bộ app.
+
+[LỜI THOẠI]:
+"Đối với Yêu cầu 6 (1.0 điểm) - Tính năng mới tự đề xuất mà các app hiện tại chưa có:
+Em đã phát triển tính năng: Bảng Lương Dự Kiến & KPI Thông Minh Thời Gian Thực (Smart Payroll & Attendance Estimation).
+Các app hiện nay chỉ ghi nhận giờ vào ra thô sơ, nhân viên phải chờ đến cuối tháng mới biết tiền lương. Với tính năng này, hệ thống tự động bóc tách từng ngày công thực tế, tính toán minh bạch: tiền thưởng chuỗi ngày đúng giờ, tiền phụ cấp, và trừ chính xác từng phút đi trễ theo quy chế công ty. Đồng thời dự phóng số tiền nhận được vào cuối tháng để nhân viên chủ động kế hoạch tài chính.
+Về Yêu cầu 7 (1.0 điểm) - Giao diện & Độ ổn định: Ứng dụng được thiết kế theo chuẩn Enterprise UI hiện đại, màu sắc trang nhã, bố cục rõ ràng, loại bỏ các chi tiết demo thừa thãi. Mã nguồn được chuẩn hóa đạt chuẩn phân tích flutter analyze: No issues found với 0 lỗi và 0 cảnh báo."
+
+======================================================================
+PHẦN 6: KẾT THÚC (Khoảng 15 giây)
+======================================================================
+[HÀNH ĐỘNG]:
+Mở trang GitHub repository: https://github.com/kihoo2905/appCC.git hiển thị các commit đã được đẩy lên đầy đủ.
+
+[LỜI THOẠI]:
+"Toàn bộ mã nguồn backend C# và ứng dụng di động Flutter đã được em đồng bộ và đẩy lên GitHub đầy đủ. 
+Em xin chân thành cảm ơn Thầy/Cô đã theo dõi phần trình bày video của em. Em xin kính chúc Thầy/Cô nhiều sức khỏe và thành công!"

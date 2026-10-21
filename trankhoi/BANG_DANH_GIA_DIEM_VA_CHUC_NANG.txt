@@ -1,0 +1,62 @@
+BÁO CÁO CÁC CHỨC NĂNG THỰC HIỆN VÀ ĐÁNH GIÁ ĐIỂM
+ĐỀ TÀI: ỨNG DỤNG DI ĐỘNG CHẤM CÔNG THÔNG MINH (SMART ATTENDANCE)
+Sinh viên thực hiện: Trần Minh Khôi
+MSSV: 2380601106 - Lớp: 23DTHC3 - HUTECH
+GitHub: https://github.com/kihoo2905/appCC.git
+
+========================================================================================================================
+STT | YÊU CẦU NGHIỆP VỤ                | TÌNH TRẠNG THỰC HIỆN & VỊ TRÍ MÀN HÌNH                          | ĐIỂM ĐÁNH GIÁ
+========================================================================================================================
+1   | Đăng ký tài khoản qua Email      | [HOÀN THÀNH 100%]                                                | ĐẠT YÊU CẦU
+    |                                  | - Đăng ký tài khoản qua màn hình registration_screen.dart       |
+    |                                  | - Kiểm tra định dạng username, email, mật khẩu.                  |
+    |                                  | - Tích hợp gửi mã OTP xác thực email kích hoạt tài khoản.        |
+------------------------------------------------------------------------------------------------------------------------
+2   | Đăng nhập 2 bước                 | [HOÀN THÀNH 100%]                                                | ĐẠT YÊU CẦU
+    |                                  | - Màn hình login_screen.dart.                                    |
+    |                                  | - Đăng nhập bằng: Tên đăng nhập + Mật khẩu.                      |
+    |                                  | - Bước 2: Nhận mã OTP 6 số qua email xác nhận mới cấp Token JWT.|
+------------------------------------------------------------------------------------------------------------------------
+3   | Phân quyền người dùng động       | [HOÀN THÀNH 100%]                                                | ĐẠT YÊU CẦU
+    |                                  | - Hệ thống tự động đọc Role trong JWT Token để điều hướng:       |
+    |                                  |   + Nếu là Admin / QuanLy -> Vào Trang Quản Trị (admin_screen.dart)|
+    |                                  |   + Nếu là NhanVien -> Vào Dashboard cá nhân (main_screen.dart)  |
+    |                                  |   + Nếu là KhachHang -> Vào Trang Khách Đối Tác (customer_screen)|
+------------------------------------------------------------------------------------------------------------------------
+4   | Các chức năng CRUD toàn diện     | [HOÀN THÀNH 100%]                                                | 5.5 / 5.5 ĐIỂM
+    |                                  | - Màn hình Quản lý nhân sự (employee_crud_screen.dart):          |
+    |                                  |   + Create: Thêm mới nhân viên với mã NV, phòng ban, ca làm...   |
+    |                                  |   + Read: Danh sách nhân viên kèm tìm kiếm, phân trang API.      |
+    |                                  |   + Update: Cập nhật thông tin phòng ban, mức lương, chức vụ.    |
+    |                                  |   + Delete: Xóa nhân viên kèm hộp thoại cảnh báo an toàn.        |
+    |                                  | - Màn hình Cấu hình công ty (company_config_screen.dart):        |
+    |                                  |   + CRUD Phòng ban, Ca làm việc, Tọa độ GPS chấm công, Tài khoản.|
+------------------------------------------------------------------------------------------------------------------------
+5   | Chọn 3 trong 6 công nghệ         | [HOÀN THÀNH 100% - 3 CÔNG NGHỆ CHÍNH]:                           | 3.5 / 3.5 ĐIỂM
+    | thuyết trình                     | 1. Chia sẻ vị trí GPS chấm công (Geofence Haversine):            |
+    |                                  |    - Tự động so khớp tọa độ văn phòng HUTECH (475A Điện Biên Phủ)|
+    |                                  |    - Chặn và phát hiện phần mềm giả lập Fake/Mock GPS.           |
+    |                                  | 2. Quét mã QR Code động (Dynamic QR Token):                      |
+    |                                  |    - Mã QR mã hóa HMAC thay đổi tự động mỗi 60 giây tại Admin.   |
+    |                                  |    - Nhân viên dùng camera quét thực tế, chống gửi ảnh gian lận. |
+    |                                  | 3. Cảm biến gia tốc thực tế (Accelerometer Sensor):              |
+    |                                  |    - Màn hình motion_sensor_screen.dart đọc trục X, Y, Z liên tục|
+    |                                  |    - Vẽ đồ thị dao động, đếm bước chân, phân loại trạng thái      |
+    |                                  |      (đứng yên / đi bộ / chạy), xác minh di chuyển thật.         |
+------------------------------------------------------------------------------------------------------------------------
+6   | Tính năng mới tự đề xuất         | [HOÀN THÀNH 100%]                                                | 1.0 / 1.0 ĐIỂM
+    | (Chưa có ở các app hiện tại)     | - Bảng Lương Dự Kiến & KPI Thông Minh (salary_estimation_screen) |
+    |                                  | - Thay thế tính năng phòng họp video cũ bằng tính năng thực tế.  |
+    |                                  | - Tự động liên kết dữ liệu chấm công: tính lương theo ngày công, |
+    |                                  |   phạt tiền theo từng phút đi trễ, thưởng theo chuỗi ngày đúng   |
+    |                                  |   giờ và xếp loại KPI A/B/C.                                     |
+    |                                  | - Dự báo chính xác thu nhập cuối tháng cho nhân viên.            |
+------------------------------------------------------------------------------------------------------------------------
+7   | Giao diện đẹp, dễ dùng,          | [HOÀN THÀNH 100%]                                                | 1.0 / 1.0 ĐIỂM
+    | cả nhóm chạy được                | - Giao diện hiện đại phong cách Enterprise, trực quan, dễ dùng.  |
+    |                                  | - Lược bỏ hoàn toàn các thành phần FaceID demo thừa thãi.        |
+    |                                  | - flutter analyze: No issues found! (0 lỗi, 0 cảnh báo).        |
+    |                                  | - Toàn bộ mã nguồn đã đồng bộ trên GitHub, cả nhóm pull về chạy. |
+========================================================================================================================
+TỔNG CỘNG ĐIỂM ĐẠT ĐƯỢC:                                                                                  | 10.0 / 10 ĐIỂM
+========================================================================================================================
