@@ -31,6 +31,7 @@ public static class DbSeeder
             cfg["Seed:AdminPassword"] ?? "Admin@123", "Trần Minh Khôi (Quản trị)", AppRoles.Admin);
         var ql = await TaoTaiKhoanAsync(um, "quanly01", "quanly01@trankhoi.local", "QuanLy@123", "Nguyễn Văn Quản Lý", AppRoles.QuanLy);
         var nvUser = await TaoTaiKhoanAsync(um, "nhanvien01", "nhanvien01@trankhoi.local", "NhanVien@123", "Lê Thị Nhân Viên", AppRoles.NhanVien);
+        await TaoTaiKhoanAsync(um, "khachhang01", "khachhang01@trankhoi.local", "KhachHang@123", "Phạm Khách Hàng (Đối tác)", AppRoles.KhachHang);
 
         // Dữ liệu mẫu
         if (!await db.PhongBans.AnyAsync())

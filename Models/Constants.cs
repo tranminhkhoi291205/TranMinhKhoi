@@ -5,8 +5,9 @@ public static class AppRoles
     public const string Admin = "Admin";
     public const string QuanLy = "QuanLy";
     public const string NhanVien = "NhanVien";
+    public const string KhachHang = "KhachHang";
     public const string AdminQuanLy = Admin + "," + QuanLy;
-    public static readonly string[] TatCa = { Admin, QuanLy, NhanVien };
+    public static readonly string[] TatCa = { Admin, QuanLy, NhanVien, KhachHang };
 }
 
 public static class PhuongThucChamCong

@@ -278,6 +278,7 @@ public class AuthController : ControllerBase
     {
         AppRoles.Admin => "admin",
         AppRoles.QuanLy => "quanly",
+        AppRoles.KhachHang => "khachhang",
         _ => "nhanvien"
     };
 

@@ -18,19 +18,21 @@ Video demo : [DÁN LINK Google Drive / YouTube / Facebook - quay màn hình, v�
 2. ĐẦU API (BASE URL)
 ---------------------------------------------------------------------
 Dùng CHUNG một đầu API cho toàn bộ chức năng (1 WebAPI TranMinhKhoi).
-Swagger kiểm tra : http://localhost:5145/swagger
+Swagger kiểm tra chính : https://goodyellowbox76.conveyor.cloud/swagger
+(Swagger localhost: http://localhost:5145/swagger)
 
-Base URL khai báo trong file .env của Flutter (biến BASE_URL):
-  - Android emulator : http://10.0.2.2:5145/api/
-  - Điện thoại thật  : http://192.168.1.3:5145/api/   (IP máy hiện tại: 192.168.1.3)
-  - Localhost        : http://localhost:5145/api/
-  - Nếu deploy/ngrok : [CẬP NHẬT LẠI LINK TẠI ĐÂY KHI THAY ĐỔI]
+Base URL chính thức khai báo trong file .env của Flutter:
+  - API CHÍNH (Conveyor Cloud) : https://goodyellowbox76.conveyor.cloud/api/
+  - Android emulator (nội bộ) : http://10.0.2.2:5145/api/
+  - Điện thoại thật Wi-Fi LAN : http://192.168.1.3:5145/api/
+  - Localhost                 : http://localhost:5145/api/
 Lưu ý: máy chạy API và điện thoại phải cùng mạng Wi-Fi, mở cổng 5145 trên Windows Firewall (API đã cấu hình lắng nghe 0.0.0.0:5145).
 
 Tài khoản mẫu:
   Admin     : admin      / Admin@123
   Quản lý   : quanly01   / QuanLy@123
   Nhân viên : nhanvien01 / NhanVien@123
+  Khách hàng: khachhang01/ KhachHang@123
 
 ---------------------------------------------------------------------
 3. CÁC CHỨC NĂNG

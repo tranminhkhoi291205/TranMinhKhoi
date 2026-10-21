@@ -23,3 +23,19 @@ bld/
 ## OS files
 .DS_Store
 Thumbs.db
+
+## Flutter & Android
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.pub-cache/
+.pub/
+build/
+*.iml
+.idea/
+.gradle/
+local.properties
+**/android/.gradle/
+**/android/app/debug/
+**/android/app/profile/
+**/android/app/release/

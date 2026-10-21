@@ -1,4 +1,4 @@
-@host = http://localhost:5145
+@host = https://goodyellowbox76.conveyor.cloud
 @token = DAN_JWT_TOKEN_VAO_DAY
 
 ### 1. Đăng ký (xong sẽ nhận OTP qua email; ở môi trường Development OTP nằm trong trường devOtp)
