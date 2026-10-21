@@ -2,7 +2,7 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class ConfigUrl {
-  static const String defaultConveyorUrl = "https://earlysparklyapple72.conveyor.cloud/api/";
+  static const String defaultConveyorUrl = "https://longpurplehouse75.conveyor.cloud/api/";
   static const String defaultEmulatorUrl = "http://10.0.2.2:5145/api/";
   static const String defaultLanUrl = "http://192.168.1.3:5145/api/";
   static const String defaultLocalhostUrl = "http://localhost:5145/api/";
