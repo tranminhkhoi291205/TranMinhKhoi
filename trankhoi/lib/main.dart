@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:intl/date_symbol_data_local.dart';
 import 'package:trankhoi/config/config_url.dart';
 import 'package:trankhoi/screens/login_screen.dart';
 
@@ -10,6 +11,7 @@ Future<void> main() async {
   } catch (_) {}
 
   await ConfigUrl.init();
+  await initializeDateFormatting();
   runApp(const MyApp());
 }
 

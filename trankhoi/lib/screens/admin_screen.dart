@@ -6,7 +6,6 @@ import 'package:trankhoi/screens/employee_crud_screen.dart';
 import 'package:trankhoi/screens/admin_qr_screen.dart';
 import 'package:trankhoi/screens/leave_management_screen.dart';
 import 'package:trankhoi/screens/group_video_call_screen.dart';
-import 'package:trankhoi/screens/face_attendance_screen.dart';
 import 'package:trankhoi/screens/company_config_screen.dart';
 import 'package:trankhoi/screens/motion_sensor_screen.dart';
 
@@ -279,7 +278,7 @@ class _AdminScreenState extends State<AdminScreen> {
                   ),
                   _buildActionCard(
                     title: 'Phòng Họp Trực Tuyến',
-                    subtitle: 'Họp video nhóm nhân viên (3.5đ)',
+                    subtitle: 'Họp video nhóm nhân viên',
                     icon: Icons.video_call,
                     color: Colors.cyan,
                     onTap: () {
@@ -287,22 +286,10 @@ class _AdminScreenState extends State<AdminScreen> {
                     },
                   ),
                   _buildActionCard(
-                    title: 'Đăng Ký Khuôn Mặt AI',
-                    subtitle: 'Quét mẫu vector 128 chiều (3.5đ)',
-                    icon: Icons.face,
-                    color: Colors.green,
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => const FaceAttendanceScreen(isRegistration: true)),
-                      );
-                    },
-                  ),
-                  _buildActionCard(
-                    title: 'Cảm Biến Gia Tốc (3.5đ)',
+                    title: 'Cảm Biến Gia Tốc',
                     subtitle: 'Đo chuyển động, bước chân thực tế',
                     icon: Icons.directions_run,
-                    color: Colors.deepPurple,
+                    color: Colors.teal,
                     onTap: () {
                       Navigator.push(
                         context,
