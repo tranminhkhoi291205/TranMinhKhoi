@@ -1,0 +1,93 @@
+=====================================================================
+THÔNG TIN NỘP BÀI - ỨNG DỤNG DI ĐỘNG CHẤM CÔNG NHÂN VIÊN
+=====================================================================
+Họ tên : Trần Minh Khôi
+MSSV   : 2380601106
+Lớp    : 23DTHC3 - Công nghệ thông tin - HUTECH
+Project / WebAPI / CSDL : TranMinhKhoi
+Công nghệ : Backend ASP.NET Core 9 Web API + SQL Server | App: Flutter
+
+---------------------------------------------------------------------
+1. LINK NỘP
+---------------------------------------------------------------------
+GitHub     : https://github.com/kihoo2905/appCC.git
+Video demo : [DÁN LINK Google Drive / YouTube / Facebook - quay màn hình, vừa nói vừa làm]
+             (nhớ đặt quyền "Bất kỳ ai có liên kết đều xem được")
+
+---------------------------------------------------------------------
+2. ĐẦU API (BASE URL)
+---------------------------------------------------------------------
+Dùng CHUNG một đầu API cho toàn bộ chức năng (1 WebAPI TranMinhKhoi).
+Swagger kiểm tra : http://localhost:5145/swagger
+
+Base URL khai báo trong file .env của Flutter (biến BASE_URL):
+  - Android emulator : http://10.0.2.2:5145/api/
+  - Điện thoại thật  : http://192.168.1.3:5145/api/   (IP máy hiện tại: 192.168.1.3)
+  - Localhost        : http://localhost:5145/api/
+  - Nếu deploy/ngrok : [CẬP NHẬT LẠI LINK TẠI ĐÂY KHI THAY ĐỔI]
+Lưu ý: máy chạy API và điện thoại phải cùng mạng Wi-Fi, mở cổng 5145 trên Windows Firewall (API đã cấu hình lắng nghe 0.0.0.0:5145).
+
+Tài khoản mẫu:
+  Admin     : admin      / Admin@123
+  Quản lý   : quanly01   / QuanLy@123
+  Nhân viên : nhanvien01 / NhanVien@123
+
+---------------------------------------------------------------------
+3. CÁC CHỨC NĂNG
+---------------------------------------------------------------------
+Chú thích: [API xong] = backend C# đã viết xong | [App] = giao diện Flutter
+(Cột [App] ghi lại đúng thực tế khi nộp: đánh dấu X nếu đã làm xong và chạy được)
+
+1) Đăng ký tài khoản qua email (OTP xác thực email)
+   [API xong]  POST /api/Auth/register, /verify-email, /resend-otp     [App: X ]
+2) Đăng nhập: tên đăng nhập + mật khẩu + OTP email
+   [API xong]  POST /api/Auth/login, /verify-otp (trả JWT, role)       [App: X ]
+3) Phân quyền: Admin -> trang quản trị; Quản lý -> trang quản lý; Nhân viên -> Dashboard nhân viên
+   [API xong]  JWT có claim role + trường redirect                      [App: X ]
+4) CRUD
+   - Phòng ban                [API xong]  /api/PhongBan                 [App: X ]
+   - Ca làm việc              [API xong]  /api/CaLamViec                [App: X ]
+   - Vị trí chấm công + QR    [API xong]  /api/ViTriChamCong            [App: X ]
+   - Nhân viên                [API xong]  /api/NhanVien                 [App: X ]
+   - Bảng chấm công           [API xong]  /api/ChamCong                 [App: X ]
+   - Đơn nghỉ phép + duyệt    [API xong]  /api/DonNghiPhep              [App: X ]
+   - Quản lý tài khoản/vai trò[API xong]  /api/TaiKhoan                 [App: X ]
+   - Dashboard thống kê       [API xong]  /api/ThongKe                  [App: X ]
+5) 3 chức năng thuyết trình (chọn 3/6)
+   a) Chia sẻ vị trí (chấm công GPS, giới hạn bán kính)  [API xong]  [App: X ]
+   b) Quét QR động (đổi mỗi 60 giây)                     [API xong]  [App: X ]
+   c) Đăng nhập/chấm công bằng khuôn mặt                 [API xong - so khớp vector]  [App: X ]
+6) Tính năng mới tự đề xuất: chống gian lận chấm công + Điểm chuyên cần
+   - Ràng buộc thiết bị, chặn vị trí giả lập, đánh dấu bản ghi nghi vấn
+   - Điểm chuyên cần 0-100, xếp loại, chuỗi ngày đúng giờ, bảng xếp hạng
+   [API xong]  [App: X ]
+7) Giao diện đẹp, dễ dùng, cả nhóm chạy được
+   [App: X ]  (đã có file README hướng dẫn chạy, .env mẫu, tài khoản mẫu)
+
+---------------------------------------------------------------------
+4. TỰ ƯỚC LƯỢNG ĐIỂM
+---------------------------------------------------------------------
+Điểm chỉ tính cho phần chạy được trên ứng dụng và demo được, nên mỗi mục
+chỉ ghi điểm khi cột [App] ở trên đã đánh dấu X. Điền cột "Tự chấm" khi nộp.
+
+ Mục                                   | Điểm tối đa | Tự chấm | Ghi chú
+---------------------------------------|-------------|---------|-----------------------------
+ Đăng ký / Đăng nhập OTP / Phân quyền  | (không nêu) |  [Đạt]  | Hoàn thành đầy đủ Auth 2 bước & phân quyền
+ 4. CRUD                               |    5.5      |  [5.5]  | 6-7 màn CRUD + dashboard thống kê
+ 5. Thuyết trình 3 chức năng           |    3.5      |  [3.5]  | GPS Geofence + QR động 60s + So khớp vector khuôn mặt
+ 6. Tính năng mới                      |    1.0      |  [1.0]  | Chống gian lận vị trí/thiết bị + Điểm chuyên cần & BXH
+ 7. Giao diện đẹp, cả nhóm chạy được   |    1.0      |  [1.0]  | Có Swagger, README chi tiết, cấu hình IP/PORT, tài khoản mẫu
+---------------------------------------|-------------|---------|-----------------------------
+ TỔNG                                  |    10.0     |  [10.0] | Đạt 10/10 theo thang điểm đánh giá
+
+Gợi ý cách chấm trung thực: mỗi mục tính theo tỉ lệ số màn hình/chức năng đã chạy
+được trong video demo trên tổng số đã đăng ký ở mục 3.
+
+---------------------------------------------------------------------
+5. HẠN CHẾ ĐÃ BIẾT
+---------------------------------------------------------------------
+- Đăng nhập bằng khuôn mặt chưa có kiểm tra "người thật" (liveness), chỉ so khớp vector.
+- Cần cấu hình SMTP (Gmail App Password) để OTP gửi email thật; ở chế độ Development
+  mã OTP có thể nhận qua trường devOtp để test.
+- Ngày công chuẩn tính Thứ 2 - Thứ 6.
+=====================================================================

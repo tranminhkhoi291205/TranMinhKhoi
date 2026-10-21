@@ -1,0 +1,72 @@
+@host = http://localhost:5145
+@token = DAN_JWT_TOKEN_VAO_DAY
+
+### 1. Đăng ký (xong sẽ nhận OTP qua email; ở môi trường Development OTP nằm trong trường devOtp)
+POST {{host}}/api/Auth/register
+Content-Type: application/json
+
+{
+  "username": "khoi01",
+  "email": "khoi01@gmail.com",
+  "password": "Khoi@1234",
+  "hoTen": "Trần Minh Khôi",
+  "soDienThoai": "0901234567"
+}
+
+### 2. Xác thực email đăng ký
+POST {{host}}/api/Auth/verify-email
+Content-Type: application/json
+
+{ "username": "khoi01", "otp": "123456" }
+
+### 3. Đăng nhập bước 1: tên đăng nhập + mật khẩu → gửi OTP
+POST {{host}}/api/Auth/login
+Content-Type: application/json
+
+{ "username": "admin", "password": "Admin@123" }
+
+### 4. Đăng nhập bước 2: OTP → JWT (dán token vào biến @token ở trên)
+POST {{host}}/api/Auth/verify-otp
+Content-Type: application/json
+
+{ "username": "admin", "otp": "123456", "deviceId": "android-test-01" }
+
+### Thông tin tài khoản + vai trò
+GET {{host}}/api/Auth/me
+Authorization: Bearer {{token}}
+
+### Dashboard quản trị
+GET {{host}}/api/ThongKe/tong-quan
+Authorization: Bearer {{token}}
+
+### Danh sách nhân viên
+GET {{host}}/api/NhanVien?page=1&pageSize=20
+Authorization: Bearer {{token}}
+
+### Lấy mã QR động của văn phòng (đổi mỗi 60 giây)
+GET {{host}}/api/ViTriChamCong/1/qr
+Authorization: Bearer {{token}}
+
+### Nhân viên chấm công vào bằng GPS
+POST {{host}}/api/ChamCong/check-in
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "phuongThuc": "GPS",
+  "viDo": 10.8018,
+  "kinhDo": 106.7143,
+  "deviceId": "android-test-01",
+  "giaLapViTri": false
+}
+
+### Chấm công ra bằng QR
+POST {{host}}/api/ChamCong/check-out
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{ "phuongThuc": "QR", "qrToken": "1.123456.ABCDEF", "deviceId": "android-test-01" }
+
+### Điểm chuyên cần tháng này của tôi
+GET {{host}}/api/ThongKe/cua-toi
+Authorization: Bearer {{token}}
