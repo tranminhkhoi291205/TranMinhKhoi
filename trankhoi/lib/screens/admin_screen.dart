@@ -5,9 +5,9 @@ import 'package:trankhoi/screens/login_screen.dart';
 import 'package:trankhoi/screens/employee_crud_screen.dart';
 import 'package:trankhoi/screens/admin_qr_screen.dart';
 import 'package:trankhoi/screens/leave_management_screen.dart';
-import 'package:trankhoi/screens/group_video_call_screen.dart';
 import 'package:trankhoi/screens/company_config_screen.dart';
 import 'package:trankhoi/screens/motion_sensor_screen.dart';
+import 'package:trankhoi/screens/salary_estimation_screen.dart';
 
 class AdminScreen extends StatefulWidget {
   const AdminScreen({super.key});
@@ -277,12 +277,12 @@ class _AdminScreenState extends State<AdminScreen> {
                     onTap: _showAttendanceListModal,
                   ),
                   _buildActionCard(
-                    title: 'Phòng Họp Trực Tuyến',
-                    subtitle: 'Họp video nhóm nhân viên',
-                    icon: Icons.video_call,
+                    title: 'Bảng Lương & KPI Tự Động',
+                    subtitle: 'Dự báo lương theo ngày công thực tế',
+                    icon: Icons.calculate,
                     color: Colors.cyan,
                     onTap: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => const GroupVideoCallScreen()));
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => const SalaryEstimationScreen()));
                     },
                   ),
                   _buildActionCard(

@@ -7,8 +7,8 @@ import 'package:trankhoi/services/location_service.dart';
 import 'package:trankhoi/services/sensor_service.dart';
 import 'package:trankhoi/screens/qr_scanner_screen.dart';
 import 'package:trankhoi/screens/leave_management_screen.dart';
-import 'package:trankhoi/screens/group_video_call_screen.dart';
 import 'package:trankhoi/screens/motion_sensor_screen.dart';
+import 'package:trankhoi/screens/salary_estimation_screen.dart';
 import 'package:trankhoi/screens/login_screen.dart';
 
 class MainScreen extends StatefulWidget {
@@ -736,7 +736,12 @@ class _MainScreenState extends State<MainScreen> {
                             onTap: () {
                               Navigator.push(
                                 context,
-                                MaterialPageRoute(builder: (context) => const GroupVideoCallScreen()),
+                                MaterialPageRoute(
+                                  builder: (context) => SalaryEstimationScreen(
+                                    punctualityStreak: _chuoiDungGio,
+                                    grade: _xepLoai,
+                                  ),
+                                ),
                               );
                             },
                             borderRadius: BorderRadius.circular(16),
@@ -753,16 +758,16 @@ class _MainScreenState extends State<MainScreen> {
                                   CircleAvatar(
                                     radius: 20,
                                     backgroundColor: Color(0xFFECFDF5),
-                                    child: Icon(Icons.video_call, color: Color(0xFF059669), size: 22),
+                                    child: Icon(Icons.calculate, color: Color(0xFF059669), size: 22),
                                   ),
                                   SizedBox(height: 12),
                                   Text(
-                                    'Họp Trực Tuyến',
+                                    'Bảng Lương & KPI',
                                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14, color: Color(0xFF0F172A)),
                                   ),
                                   SizedBox(height: 2),
                                   Text(
-                                    'Phòng video nội bộ',
+                                    'Dự báo thu nhập tháng',
                                     style: TextStyle(fontSize: 11, color: Color(0xFF64748B)),
                                   ),
                                 ],
