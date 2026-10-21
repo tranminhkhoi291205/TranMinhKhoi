@@ -8,6 +8,7 @@ import 'package:trankhoi/screens/leave_management_screen.dart';
 import 'package:trankhoi/screens/group_video_call_screen.dart';
 import 'package:trankhoi/screens/face_attendance_screen.dart';
 import 'package:trankhoi/screens/company_config_screen.dart';
+import 'package:trankhoi/screens/motion_sensor_screen.dart';
 
 class AdminScreen extends StatefulWidget {
   const AdminScreen({super.key});
@@ -294,6 +295,18 @@ class _AdminScreenState extends State<AdminScreen> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(builder: (context) => const FaceAttendanceScreen(isRegistration: true)),
+                      );
+                    },
+                  ),
+                  _buildActionCard(
+                    title: 'Cảm Biến Gia Tốc (3.5đ)',
+                    subtitle: 'Đo chuyển động, bước chân thực tế',
+                    icon: Icons.directions_run,
+                    color: Colors.deepPurple,
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => const MotionSensorScreen()),
                       );
                     },
                   ),

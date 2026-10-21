@@ -10,7 +10,7 @@ class EmployeeService {
       Map<String, dynamic> q = {};
       if (phongBanId != null) q['phongBanId'] = phongBanId;
       if (dangLamViec != null) q['dangLamViec'] = dangLamViec;
-      if (timKiem != null && timKiem.isNotEmpty) q['timKiem'] = timKiem;
+      if (timKiem != null && timKiem.isNotEmpty) q['search'] = timKiem;
 
       final response = await _api.get('NhanVien', queryParams: q);
       if (response.statusCode == 200) {

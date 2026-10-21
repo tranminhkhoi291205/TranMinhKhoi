@@ -15,12 +15,24 @@ public class PhongBanController : ControllerBase
     private readonly ApplicationDbContext _db;
     public PhongBanController(ApplicationDbContext db) => _db = db;
 
+    /// <summary>Truy vấn PhongBan kèm đếm nhân viên — dùng cho GetById, Create, Update.</summary>
     private IQueryable<PhongBanDto> Truy() =>
-        _db.PhongBans.Select(p => new PhongBanDto(p.Id, p.Ten, p.MoTa, p.NhanViens.Count));
+        _db.PhongBans.Select(p => new PhongBanDto(p.Id, p.Ten, p.MoTa,
+            _db.NhanViens.Count(n => n.PhongBanId == p.Id)));
 
     [HttpGet]
-    public async Task<IActionResult> GetAll() =>
-        Ok(await Truy().OrderBy(p => p.Ten).ToListAsync());
+    public async Task<IActionResult> GetAll()
+    {
+        var ds = await _db.PhongBans
+            .OrderBy(p => p.Ten)
+            .Select(p => new PhongBanDto(
+                p.Id,
+                p.Ten,
+                p.MoTa,
+                _db.NhanViens.Count(n => n.PhongBanId == p.Id)))
+            .ToListAsync();
+        return Ok(ds);
+    }
 
     [HttpGet("{id:int}")]
     public async Task<IActionResult> GetById(int id)

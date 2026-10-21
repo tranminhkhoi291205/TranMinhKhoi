@@ -9,6 +9,7 @@ import 'package:trankhoi/screens/qr_scanner_screen.dart';
 import 'package:trankhoi/screens/face_attendance_screen.dart';
 import 'package:trankhoi/screens/leave_management_screen.dart';
 import 'package:trankhoi/screens/group_video_call_screen.dart';
+import 'package:trankhoi/screens/motion_sensor_screen.dart';
 import 'package:trankhoi/screens/login_screen.dart';
 
 class MainScreen extends StatefulWidget {
@@ -579,22 +580,42 @@ class _MainScreenState extends State<MainScreen> {
                     const SizedBox(height: 12),
 
                     // Cảm biến đo chuyển động gia tốc
-                    Card(
-                      elevation: 1,
-                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-                      child: Padding(
-                        padding: const EdgeInsets.all(14.0),
-                        child: Row(
-                          children: [
-                            const Icon(Icons.motion_photos_on, color: Colors.blue),
-                            const SizedBox(width: 10),
-                            Expanded(
-                              child: Text(
-                                'Cảm biến gia tốc thực tế: X: ${_accelX.toStringAsFixed(1)} | Y: ${_accelY.toStringAsFixed(1)} | Z: ${_accelZ.toStringAsFixed(1)}',
-                                style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w500),
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => const MotionSensorScreen()),
+                        );
+                      },
+                      borderRadius: BorderRadius.circular(12),
+                      child: Card(
+                        elevation: 1,
+                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                        child: Padding(
+                          padding: const EdgeInsets.all(14.0),
+                          child: Row(
+                            children: [
+                              const Icon(Icons.motion_photos_on, color: Colors.deepPurple),
+                              const SizedBox(width: 10),
+                              Expanded(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    const Text(
+                                      '3. Cảm biến gia tốc thực tế (3.5đ) - Chạm để xem chi tiết',
+                                      style: TextStyle(fontSize: 13, fontWeight: FontWeight.bold, color: Colors.deepPurple),
+                                    ),
+                                    const SizedBox(height: 2),
+                                    Text(
+                                      'X: ${_accelX.toStringAsFixed(1)} | Y: ${_accelY.toStringAsFixed(1)} | Z: ${_accelZ.toStringAsFixed(1)} m/s²',
+                                      style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w500),
+                                    ),
+                                  ],
+                                ),
                               ),
-                            ),
-                          ],
+                              const Icon(Icons.chevron_right, color: Colors.grey),
+                            ],
+                          ),
                         ),
                       ),
                     ),
