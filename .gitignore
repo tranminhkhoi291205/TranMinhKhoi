@@ -49,3 +49,6 @@ local.properties
 
 # Ignore presentation & submission text files
 *.txt
+
+# Frontend Flutter folder moved to separate repository
+trankhoi/

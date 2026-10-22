@@ -1,6 +1,0 @@
-package com.example.trankhoi;
-
-import io.flutter.embedding.android.FlutterFragmentActivity;
-
-public class MainActivity extends FlutterFragmentActivity {
-}
