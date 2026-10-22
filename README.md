@@ -10,8 +10,8 @@ Sinh viên thực hiện: **Trần Minh Khôi** - MSSV: **2380601106** - Lớp: 
 
 > [!IMPORTANT]
 > **Khuyến nghị & Chạy chính thức:** Sử dụng trực tiếp đường dẫn đám mây **Conveyor Cloud** để kiểm tra, chấm bài và chạy ứng dụng di động. Không phụ thuộc vào localhost:
-> - **Swagger API Documentation:** [https://largetealbike39.conveyor.cloud/swagger/](https://largetealbike39.conveyor.cloud/swagger/) (hoặc `https://largetealbike39.conveyor.cloud/swagger/index.html`)
-> - **API Base URL cho Mobile App:** `https://largetealbike39.conveyor.cloud/api/`
+> - **Swagger API Documentation:** [https://lostgoldroof80.conveyor.cloud/swagger/](https://lostgoldroof80.conveyor.cloud/swagger/)
+> - **API Base URL cho Mobile App:** `https://lostgoldroof80.conveyor.cloud/api/`
 > - Đảm bảo ứng dụng chạy thông suốt từ mọi nơi (điện thoại thật qua 4G, mạng Wi-Fi bên ngoài) mà không cần cấu hình mạng nội bộ hay mở port Windows Firewall.
 
 ### Chạy cục bộ bằng Visual Studio (Dành cho nhà phát triển):
