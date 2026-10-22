@@ -6,18 +6,21 @@ Sinh viên thực hiện: **Trần Minh Khôi** - MSSV: **2380601106** - Lớp: 
 
 ---
 
-## 1. Chạy thử và Trải nghiệm API (Conveyor Cloud)
+## 1. Danh Sách API Trực Tiếp & Kênh Dự Phòng
 
-> [!IMPORTANT]
-> **Khuyến nghị & Chạy chính thức:** Sử dụng trực tiếp đường dẫn đám mây **Conveyor Cloud** để kiểm tra, chấm bài và chạy ứng dụng di động. Không phụ thuộc vào localhost:
-> - **Swagger API Documentation:** [https://largetealbike39.conveyor.cloud/swagger/](https://largetealbike39.conveyor.cloud/swagger/)
-> - **API Base URL cho Mobile App:** `https://largetealbike39.conveyor.cloud/api/`
-> - Đảm bảo ứng dụng chạy thông suốt từ mọi nơi (điện thoại thật qua 4G, mạng Wi-Fi bên ngoài) mà không cần cấu hình mạng nội bộ hay mở port Windows Firewall.
+Hệ thống Web API được thiết kế hỗ trợ đa kênh truy cập giúp việc chấm bài và chạy ứng dụng luôn thông suốt:
+
+| Kênh kết nối | Mục đích | Swagger Documentation | Base URL API |
+|---|---|---|---|
+| **Conveyor Cloud (Internet)** | Chấm bài từ xa qua internet / mạng 4G | [https://lostgoldroof80.conveyor.cloud/swagger/](https://lostgoldroof80.conveyor.cloud/swagger/) | `https://lostgoldroof80.conveyor.cloud/api/` |
+| **Wi-Fi LAN (Dự phòng khuyên dùng khi Demo)** | Kết nối trực tiếp giữa điện thoại & laptop cùng Wi-Fi | `http://192.168.1.3:5145/swagger/` | `http://192.168.1.3:5145/api/` |
+| **Android Emulator (Giả lập)** | Chạy máy ảo Android Studio trên cùng máy tính | `http://10.0.2.2:5145/swagger/` | `http://10.0.2.2:5145/api/` |
+| **Localhost** | Chạy cục bộ trên máy tính phát triển | `http://localhost:5145/swagger/` | `http://localhost:5145/api/` |
 
 ### Chạy cục bộ bằng Visual Studio (Dành cho nhà phát triển):
 1. Mở `TranMinhKhoi.sln` bằng Visual Studio 2022 (cần .NET 9 SDK, SQL Server/SQL Express).
 2. Sửa `ConnectionStrings:DefaultConnection` trong `appsettings.json` cho đúng tên máy chủ SQL Server (database: `TranMinhKhoi`).
-3. Khởi chạy thông qua tiện ích Conveyor để public đường dẫn ra internet.
+3. Nhấn `Ctrl + F5` (Start Without Debugging) để backend chạy ngầm mượt mà.
 
 ### Dùng Migration
 Trong Visual Studio mở **Tools > NuGet Package Manager > Package Manager Console**, chọn Default project là `TranMinhKhoi`, rồi chạy:
