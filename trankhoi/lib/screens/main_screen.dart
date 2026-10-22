@@ -283,9 +283,12 @@ class _MainScreenState extends State<MainScreen> {
               child: const Icon(Icons.fingerprint, color: Color(0xFF1E3A8A), size: 22),
             ),
             const SizedBox(width: 10),
-            const Text(
-              'Hệ Thống Chấm Công',
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Color(0xFF0F172A)),
+            const Expanded(
+              child: Text(
+                'Hệ Thống Chấm Công',
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Color(0xFF0F172A)),
+                overflow: TextOverflow.ellipsis,
+              ),
             ),
           ],
         ),

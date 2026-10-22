@@ -1,15 +1,19 @@
 ## Build results
-[Dd]ebug/
-[Dd]ebugPublic/
-[Rr]elease/
-[Rr]eleases/
+[Bb]in/
+[Oo]bj/
+**/bin/[Dd]ebug/
+**/bin/[Dd]ebugPublic/
+**/bin/[Rr]elease/
+**/bin/[Rr]eleases/
+**/obj/[Dd]ebug/
+**/obj/[Dd]ebugPublic/
+**/obj/[Rr]elease/
+**/obj/[Rr]eleases/
 x64/
 x86/
 [Aa][Rr][Mm]/
 [Aa][Rr][Mm]64/
 bld/
-[Bb]in/
-[Oo]bj/
 [Ll]og/
 [Ll]ogs/
 
@@ -36,6 +40,9 @@ build/
 .gradle/
 local.properties
 **/android/.gradle/
-**/android/app/debug/
-**/android/app/profile/
-**/android/app/release/
+**/android/.kotlin/
+
+# Android gradle wrapper
+!**/android/gradle/wrapper/gradle-wrapper.jar
+!**/android/gradlew
+!**/android/gradlew.bat

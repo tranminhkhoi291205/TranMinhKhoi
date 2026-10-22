@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:trankhoi/services/company_service.dart';
+import 'package:trankhoi/services/location_service.dart';
 
 class CompanyConfigScreen extends StatefulWidget {
   final int initialTab;
@@ -140,41 +141,69 @@ class _CompanyConfigScreenState extends State<CompanyConfigScreen> with SingleTi
     final latController = TextEditingController(text: (loc?['latitude'] ?? 10.8018).toString());
     final lngController = TextEditingController(text: (loc?['longitude'] ?? 106.7143).toString());
     final radiusController = TextEditingController(text: (loc?['banKinhMet'] ?? 150).toString());
+    final LocationService locationService = LocationService();
 
     showDialog(
       context: context,
-      builder: (context) => AlertDialog(
-        title: Text(isEdit ? 'Sửa Vị Trí Chấm Công' : 'Thêm Vị Trí Chấm Công'),
-        content: SingleChildScrollView(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              TextField(controller: nameController, decoration: const InputDecoration(labelText: 'Tên vị trí *')),
-              TextField(controller: addrController, decoration: const InputDecoration(labelText: 'Địa chỉ')),
-              TextField(controller: latController, keyboardType: TextInputType.number, decoration: const InputDecoration(labelText: 'Vĩ độ (Latitude) *')),
-              TextField(controller: lngController, keyboardType: TextInputType.number, decoration: const InputDecoration(labelText: 'Kinh độ (Longitude) *')),
-              TextField(controller: radiusController, keyboardType: TextInputType.number, decoration: const InputDecoration(labelText: 'Bán kính Geofence (Mét) *')),
-            ],
+      builder: (context) => StatefulBuilder(
+        builder: (context, setDialogState) => AlertDialog(
+          title: Text(isEdit ? 'Sửa Vị Trí Chấm Công' : 'Thêm Vị Trí Chấm Công'),
+          content: SingleChildScrollView(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                TextField(controller: nameController, decoration: const InputDecoration(labelText: 'Tên vị trí *')),
+                TextField(controller: addrController, decoration: const InputDecoration(labelText: 'Địa chỉ')),
+                TextField(controller: latController, keyboardType: TextInputType.number, decoration: const InputDecoration(labelText: 'Vĩ độ (Latitude) *')),
+                TextField(controller: lngController, keyboardType: TextInputType.number, decoration: const InputDecoration(labelText: 'Kinh độ (Longitude) *')),
+                TextField(controller: radiusController, keyboardType: TextInputType.number, decoration: const InputDecoration(labelText: 'Bán kính Geofence (Mét) *')),
+                const SizedBox(height: 12),
+                SizedBox(
+                  width: double.infinity,
+                  child: OutlinedButton.icon(
+                    icon: const Icon(Icons.my_location, color: Colors.blue),
+                    label: const Text('Lấy tọa độ vị trí hiện tại của tôi'),
+                    onPressed: () async {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(content: Text('Đang lấy vị trí GPS hiện tại...'), duration: Duration(seconds: 1)),
+                      );
+                      final pos = await locationService.getCurrentLocation();
+                      if (pos['latitude'] != null && pos['longitude'] != null) {
+                        setDialogState(() {
+                          latController.text = pos['latitude'].toString();
+                          lngController.text = pos['longitude'].toString();
+                        });
+                        if (context.mounted) {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(content: Text('Đã cập nhật tọa độ: ${pos['latitude']}, ${pos['longitude']}')),
+                          );
+                        }
+                      }
+                    },
+                  ),
+                ),
+              ],
+            ),
           ),
+          actions: [
+            TextButton(onPressed: () => Navigator.pop(context), child: const Text('Hủy')),
+            ElevatedButton(
+              onPressed: () async {
+                final lat = double.tryParse(latController.text) ?? 10.8018;
+                final lng = double.tryParse(lngController.text) ?? 106.7143;
+                final r = int.tryParse(radiusController.text) ?? 150;
+                final res = isEdit
+                    ? await _service.updateLocation(loc['id'], ten: nameController.text, diaChi: addrController.text, latitude: lat, longitude: lng, banKinhMet: r)
+                    : await _service.createLocation(ten: nameController.text, diaChi: addrController.text, latitude: lat, longitude: lng, banKinhMet: r);
+                if (!context.mounted) return;
+                Navigator.pop(context);
+                ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(res['message'])));
+                _loadAllData();
+              },
+              child: Text(isEdit ? 'Lưu' : 'Thêm'),
+            ),
+          ],
         ),
-        actions: [
-          TextButton(onPressed: () => Navigator.pop(context), child: const Text('Hủy')),
-          ElevatedButton(
-            onPressed: () async {
-              final lat = double.tryParse(latController.text) ?? 10.8018;
-              final lng = double.tryParse(lngController.text) ?? 106.7143;
-              final r = int.tryParse(radiusController.text) ?? 150;
-              final res = isEdit
-                  ? await _service.updateLocation(loc['id'], ten: nameController.text, diaChi: addrController.text, latitude: lat, longitude: lng, banKinhMet: r)
-                  : await _service.createLocation(ten: nameController.text, diaChi: addrController.text, latitude: lat, longitude: lng, banKinhMet: r);
-              if (!context.mounted) return;
-              Navigator.pop(context);
-              ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(res['message'])));
-              _loadAllData();
-            },
-            child: Text(isEdit ? 'Lưu' : 'Thêm'),
-          ),
-        ],
       ),
     );
   }
