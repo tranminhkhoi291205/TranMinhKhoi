@@ -13,27 +13,44 @@ class ConfigUrl {
     if (_currentBaseUrl.isNotEmpty) {
       return _currentBaseUrl;
     }
-    final envUrl = dotenv.env['BASE_URL'];
-    if (envUrl != null && envUrl.isNotEmpty) {
-      _currentBaseUrl = envUrl.endsWith('/') ? envUrl : '$envUrl/';
-      return _currentBaseUrl;
-    }
-    return defaultConveyorUrl;
-  }
-
-  static Future<void> init() async {
-    final prefs = await SharedPreferences.getInstance();
-    final savedUrl = prefs.getString('custom_base_url');
-    if (savedUrl != null && savedUrl.isNotEmpty) {
-      _currentBaseUrl = savedUrl.endsWith('/') ? savedUrl : '$savedUrl/';
-    } else {
+    try {
       final envUrl = dotenv.env['BASE_URL'];
       if (envUrl != null && envUrl.isNotEmpty) {
         _currentBaseUrl = envUrl.endsWith('/') ? envUrl : '$envUrl/';
-      } else {
-        _currentBaseUrl = defaultConveyorUrl;
+        return _currentBaseUrl;
       }
+    } catch (_) {
+      // Bỏ qua lỗi nếu dotenv chưa được khởi tạo
     }
+
+    // Nếu không đọc được URL trong file .env thì dùng default Conveyor Cloud
+    // ignore: avoid_print
+    print("BASE_URL is not set in the .env file. Using default URL: $defaultConveyorUrl");
+    _currentBaseUrl = defaultConveyorUrl;
+    return _currentBaseUrl;
+  }
+
+  static Future<void> init() async {
+    try {
+      final prefs = await SharedPreferences.getInstance();
+      final savedUrl = prefs.getString('custom_base_url');
+      if (savedUrl != null && savedUrl.isNotEmpty) {
+        _currentBaseUrl = savedUrl.endsWith('/') ? savedUrl : '$savedUrl/';
+        return;
+      }
+    } catch (_) {}
+
+    try {
+      final envUrl = dotenv.env['BASE_URL'];
+      if (envUrl != null && envUrl.isNotEmpty) {
+        _currentBaseUrl = envUrl.endsWith('/') ? envUrl : '$envUrl/';
+        return;
+      }
+    } catch (_) {}
+
+    // ignore: avoid_print
+    print("BASE_URL is not set in the .env file. Using default URL: $defaultConveyorUrl");
+    _currentBaseUrl = defaultConveyorUrl;
   }
 
   static Future<void> setBaseUrl(String newUrl) async {
@@ -42,7 +59,13 @@ class ConfigUrl {
       formatted = '$formatted/';
     }
     _currentBaseUrl = formatted;
-    final prefs = await SharedPreferences.getInstance();
-    await prefs.setString('custom_base_url', formatted);
+    try {
+      final prefs = await SharedPreferences.getInstance();
+      await prefs.setString('custom_base_url', formatted);
+    } catch (_) {}
   }
 }
+
+// Hỗ trợ cả 2 định dạng gọi: ConfigUrl hoặc Config_URL
+// ignore: camel_case_types
+typedef Config_URL = ConfigUrl;
