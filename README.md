@@ -1,7 +1,8 @@
 # TranMinhKhoi – Web API Chấm công nhân viên (ASP.NET Core 9 + SQL Server)
 
 Dự án Hệ thống Quản trị & Chấm công Doanh nghiệp Đa nền tảng (Web API + Mobile Flutter).  
-Sinh viên thực hiện: **Trần Minh Khôi** - MSSV: **2380601106** - Lớp: **23DTHC3** - HUTECH.
+Sinh viên thực hiện: **Trần Minh Khôi** - MSSV: **2380601106** - Lớp: **23DTHC3** - HUTECH.  
+- **Repository Frontend (Mobile App Flutter):** [https://github.com/kihoo2905/appCC-flutter.git](https://github.com/kihoo2905/appCC-flutter.git)
 
 ---
 
