@@ -46,3 +46,6 @@ local.properties
 !**/android/gradle/wrapper/gradle-wrapper.jar
 !**/android/gradlew
 !**/android/gradlew.bat
+
+# Ignore presentation & submission text files
+*.txt
