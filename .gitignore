@@ -52,3 +52,5 @@ local.properties
 
 # Frontend Flutter folder moved to separate repository
 trankhoi/
+
+publish/

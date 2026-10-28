@@ -2,7 +2,7 @@
 
 Dự án Hệ thống Quản trị & Chấm công Doanh nghiệp Đa nền tảng (Web API + Mobile Flutter).  
 Sinh viên thực hiện: **Trần Minh Khôi** - MSSV: **2380601106** - Lớp: **23DTHC3** - HUTECH.  
-- **Repository Frontend (Mobile App Flutter):** [https://github.com/kihoo2905/appCC-flutter.git](https://github.com/kihoo2905/appCC-flutter.git)
+- **Repository Frontend (Mobile App Flutter):** [https://github.com/tranminhkhoi291205/appCC-flutter.git](https://github.com/tranminhkhoi291205/appCC-flutter.git)
 
 ---
 
@@ -12,7 +12,7 @@ Hệ thống Web API được thiết kế hỗ trợ đa kênh truy cập giúp
 
 | Kênh kết nối | Mục đích | Swagger Documentation | Base URL API |
 |---|---|---|---|
-| **Conveyor Cloud (Internet)** | Chấm bài từ xa qua internet / mạng 4G | [https://lostgoldroof80.conveyor.cloud/swagger/](https://lostgoldroof80.conveyor.cloud/swagger/) | `https://lostgoldroof80.conveyor.cloud/api/` |
+| **Conveyor Cloud (Internet)** | Chấm bài từ xa qua internet / mạng 4G | [https://smallgreycar40.conveyor.cloud/swagger/](https://smallgreycar40.conveyor.cloud/swagger/) | `https://smallgreycar40.conveyor.cloud/api/` |
 | **Wi-Fi LAN (Dự phòng khuyên dùng khi Demo)** | Kết nối trực tiếp giữa điện thoại & laptop cùng Wi-Fi | `http://192.168.1.3:5145/swagger/` | `http://192.168.1.3:5145/api/` |
 | **Android Emulator (Giả lập)** | Chạy máy ảo Android Studio trên cùng máy tính | `http://10.0.2.2:5145/swagger/` | `http://10.0.2.2:5145/api/` |
 | **Localhost** | Chạy cục bộ trên máy tính phát triển | `http://localhost:5145/swagger/` | `http://localhost:5145/api/` |
