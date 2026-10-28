@@ -10,7 +10,7 @@ Sinh viên thực hiện: **Trần Minh Khôi** - MSSV: **2380601106** - Lớp: 
 
 | Kênh kết nối | Swagger Documentation | Base URL API |
 |---|---|---|
-| **Conveyor Cloud (Internet)** | [https://smallgreycar40.conveyor.cloud/swagger/](https://smallgreycar40.conveyor.cloud/swagger/) | `https://smallgreycar40.conveyor.cloud/api/` |
+| **Conveyor Cloud (Internet)** | [https://longyellowwave47.conveyor.cloud/swagger/](https://longyellowwave47.conveyor.cloud/swagger/) | `https://longyellowwave47.conveyor.cloud/api/` |
 
 ### Chạy cục bộ bằng Visual Studio (Dành cho nhà phát triển):
 1. Mở `TranMinhKhoi.sln` bằng Visual Studio 2022 (cần .NET 9 SDK, SQL Server/SQL Express).
