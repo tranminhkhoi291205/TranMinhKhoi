@@ -2,7 +2,7 @@
 
 Dự án Hệ thống Quản trị & Chấm công Doanh nghiệp Đa nền tảng (Web API + Mobile Flutter).  
 Sinh viên thực hiện: **Trần Minh Khôi** - MSSV: **2380601106** - Lớp: **23DTHC3** - HUTECH.  
-- **Repository Frontend (Mobile App Flutter):** [https://github.com/tranminhkhoi291205/appCC-flutter.git](https://github.com/tranminhkhoi291205/appCC-flutter.git)
+- **Repository Frontend (Mobile App Flutter):** [https://github.com/tranminhkhoi291205/TranMinhKhoi-Flutter.git](https://github.com/tranminhkhoi291205/TranMinhKhoi-Flutter.git)
 
 ---
 
